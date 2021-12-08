@@ -1,0 +1,31 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558 
+    // for the documentation about the tasks.json format
+    //构建说明
+    //编译生成程序的配置文件
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "g++.exe build active file", //这里注意一下
+            "command": "E:\\mingw64\\bin\\g++.exe",
+            "args": [   //编译时候的参数
+                "-g",   //添加 gdb 调试选项
+                "${file}",
+                "-o",   //指定生成可执行文件的名称
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "E:\\mingw64\\bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+				"kind": "build",
+				"isDefault": true   //表示快捷键 ctrl+shift+b 可以运行该任务
+			},
+
+        }
+    ],
+}
